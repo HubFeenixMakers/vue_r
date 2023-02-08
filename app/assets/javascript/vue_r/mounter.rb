@@ -1,5 +1,3 @@
-require 'opal-parser'
-
 module VueR
   class Mounter
     HANDLEBARS = /{{\s?([^}]*)\s?}}/
