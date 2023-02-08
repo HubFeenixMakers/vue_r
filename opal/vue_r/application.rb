@@ -63,5 +63,29 @@ module VueR
       effect.call
     end
 
+    def send_self(expression)
+      method , args = decompose(expression)
+      puts "Sending #{method}(#{args.join(',')})"
+      self.send method , *args
+    end
+
+    def decompose(expression)
+      matches = expression.match(/\b[^()]+\((.*)\)$/)
+      return expression if matches.blank?
+      method = expression.split("(").first
+      return [method , [] ] if m[1].empty?
+      args = m[1].split(",").collect{| arg | transform_arg(arg) }
+      return [method , args]
+    end
+
+    def transform_arg(arg)
+      arg = arg.strip
+      puts "Arg:#{arg}:"
+      return true if arg == "true"
+      return false if arg == "false"
+      return nil if arg == "nil"
+      return arg.to_i if arg == arg.to_to_s
+      arg
+    end
   end
 end

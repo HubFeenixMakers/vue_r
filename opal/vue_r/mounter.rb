@@ -21,7 +21,7 @@ module VueR
       ruby = match[0][2 ... -2]
       puts "Text: #{ruby}"
       proc = Proc.new do
-        elem.text = str_before + @application.eval(ruby).to_s + str_after
+        elem.text = str_before + @application.send_self(ruby).to_s + str_after
       end
       @application.watch_effect(proc)
     end
@@ -43,7 +43,7 @@ module VueR
       old_value = element[native_name]
       puts "Attribute: #{ruby}"
       proc = Proc.new do
-        element[native_name] = old_value + " " + @application.eval(ruby).to_s
+        element[native_name] = old_value + " " + @application.send_self(ruby).to_s
       end
       @application.watch_effect(proc)
     end
@@ -54,7 +54,7 @@ module VueR
       ruby = element[name]
       puts "Event: #{native_name}:#{ruby}"
       element.on!(native_name) do
-        got = @application.eval(ruby)
+        got = @application.send_self(ruby)
         puts "Clicked #{got}"
       end
     end

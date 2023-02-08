@@ -6,7 +6,6 @@
     %a.underline{ e_click: "bg_change" , r_class: 'back'}
       {{ back }}
 :opal
-  puts "here1"
   class Clicker < VueR::Application
     def bg_change
       self.state = !self.state
@@ -16,8 +15,5 @@
     end
   end
 
-  puts "here2"
   click = Clicker.new(bg: 'bg-cyan-200' , state: true)
   click.mount("#app")
-
-  puts "here3"

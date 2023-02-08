@@ -8,3 +8,4 @@
 /dummy/log/*.log
 /dummy/storage/
 /dummy/tmp/
+/dummy/public/assets/
