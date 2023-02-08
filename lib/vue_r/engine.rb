@@ -1,3 +1,4 @@
+require 'opal'
 require "opal-rails"
 require "opal-browser"
 
@@ -11,3 +12,6 @@ module VueR
 
   end
 end
+
+Opal.append_path File.expand_path('../../../opal', __FILE__)
+Opal.use_gem 'opal-browser'
