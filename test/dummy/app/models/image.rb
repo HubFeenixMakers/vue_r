@@ -1,2 +1,2 @@
-class Image 
+class Image  < ActiveYaml::Base
 end
