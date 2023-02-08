@@ -65,27 +65,33 @@ module VueR
 
     def send_self(expression)
       method , args = decompose(expression)
-      puts "Sending #{method}(#{args.join(',')})"
-      self.send method , *args
+      method = method.strip
+      puts "Sending #{method}(#{args&.join(',')})"
+      if(args == nil or args.empty?)
+        self.send( method )
+      else
+        self.send( method , *args )
+      end
     end
 
     def decompose(expression)
       matches = expression.match(/\b[^()]+\((.*)\)$/)
-      return expression if matches.blank?
+      return expression if matches.nil?
       method = expression.split("(").first
-      return [method , [] ] if m[1].empty?
-      args = m[1].split(",").collect{| arg | transform_arg(arg) }
+      puts "METHOD:#{method}"
+      return [method , [] ] if matches[1].empty?
+      args = matches[1].split(",").collect{| arg | transform_arg(arg) }
       return [method , args]
     end
 
-    def transform_arg(arg)
-      arg = arg.strip
-      puts "Arg:#{arg}:"
+    def transform_arg(argument)
+      arg = argument.strip
+      #puts "Arg:#{arg}:"
       return true if arg == "true"
       return false if arg == "false"
       return nil if arg == "nil"
-      return arg.to_i if arg == arg.to_to_s
-      arg
+      return arg.to_i if arg == arg.to_i.to_s
+      return arg
     end
   end
 end
