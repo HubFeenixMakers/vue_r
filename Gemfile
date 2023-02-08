@@ -4,8 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 # Specify your gem's dependencies in vue_r.gemspec.
 gemspec
 
-gem "sqlite3"
-
+gem "rails"
 gem "sprockets-rails"
 
 # Start debugger with binding.b [https://github.com/ruby/debug]
