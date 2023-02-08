@@ -1,0 +1,19 @@
+%h1 Listing kanta
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @kanta.each do |kantum|
+      %tr
+        %td= link_to 'Show', kantum
+        %td= link_to 'Edit', edit_kantum_path(kantum)
+        %td= link_to 'Destroy', kantum, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Kantum', new_kantum_path
