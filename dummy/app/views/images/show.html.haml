@@ -1,21 +1,29 @@
-#app
+#app.mt-40
   .flex.justify-center
     = #@image.attributes
 
   .flex.justify-center
-    %a.underline{ e_click: "bg_change" , r_class: 'back(50)'}
+    .p-20
       {{ back }}
+    %a.p-20.underline{ e_click: "bg_change(200)" , r_class: 'back'}
+      {{ text1 }}
+    %a.p-20.underline{ e_click: "bg_change(100)" , r_class: 'back'}
+      {{ text2 }}
 :opal
   class Clicker < VueR::Application
-    def bg_change
-      self.state = !self.state
+    def bg_change(num)
+      self.state = num
     end
-    def back(arg)
-      puts "Arg:#{arg}:#{arg.class}"
-      str = self.state ? "bg-cyan-50" : "bg-cyan-200"
-      str + " " + arg.to_s
+    def back
+      'bg-cyan-' + self.state.to_s
+    end
+    def text1
+      "click for dark"
+    end
+    def text2
+      "click for light"
     end
   end
 
-  click = Clicker.new(bg: 'bg-cyan-200' , state: true)
+  click = Clicker.new( state: 200)
   click.mount("#app")

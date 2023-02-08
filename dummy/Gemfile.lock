@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/hmdne/opal-optimizer
+  revision: d958b7f68bfcec7e4d28707b382138c9436db8be
+  specs:
+    opal-optimizer (0.1.7)
+      opal (>= 1.0.0)
+      rkelly-turbo
+
 PATH
   remote: ..
   specs:
@@ -81,6 +89,7 @@ GEM
     crass (1.0.6)
     date (3.3.3)
     erubi (1.12.0)
+    execjs (2.8.1)
     globalid (1.1.0)
       activesupport (>= 5.0)
     haml (6.1.1)
@@ -169,6 +178,7 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.0.6)
+    rkelly-turbo (0.1.1)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -178,6 +188,8 @@ GEM
       sprockets (>= 3.0.0)
     sqlite3 (1.6.0-x86_64-linux)
     temple (0.10.0)
+    terser (1.1.13)
+      execjs (>= 0.3.0, < 3)
     thor (1.2.1)
     tilt (2.0.11)
     timeout (0.3.1)
@@ -194,10 +206,12 @@ PLATFORMS
 DEPENDENCIES
   active_hash
   haml-rails
+  opal-optimizer!
   opal-rails
   puma (= 5.6.5)
   rails
   sqlite3
+  terser
   vue_r!
 
 BUNDLED WITH

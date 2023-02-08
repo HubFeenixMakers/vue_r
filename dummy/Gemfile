@@ -13,3 +13,5 @@ gem "sqlite3"
 gem "active_hash"
 
 gem "opal-rails"
+gem 'opal-optimizer', git: "https://github.com/hmdne/opal-optimizer" , require: false
+gem "terser"

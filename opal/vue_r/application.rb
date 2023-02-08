@@ -75,23 +75,25 @@ module VueR
     end
 
     def decompose(expression)
-      matches = expression.match(/\b[^()]+\((.*)\)$/)
-      return expression if matches.nil?
-      method = expression.split("(").first
+      parts = expression.split("(")
+      method = parts.shift
+      raise "No nested brackets" if parts.length > 1
       puts "METHOD:#{method}"
-      return [method , [] ] if matches[1].empty?
-      args = matches[1].split(",").collect{| arg | transform_arg(arg) }
+      return [method , [] ] if parts.empty?
+      args = parts.first.split(")").first.split(",")
+      args = args.collect{| arg | transform_arg(arg) }
       return [method , args]
     end
 
     def transform_arg(argument)
       arg = argument.strip
-      #puts "Arg:#{arg}:"
+      puts "Arg:#{arg}:"
       return true if arg == "true"
       return false if arg == "false"
       return nil if arg == "nil"
       return arg.to_i if arg == arg.to_i.to_s
-      return arg
+      arg.gsub('"' ,"").gsub("'" , "")
+
     end
   end
 end
