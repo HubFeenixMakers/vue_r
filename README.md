@@ -1,28 +1,46 @@
 # VueR
-Short description and motivation.
+(pronounced viewer)
+
+VueR is a Vue.js inspired reactive frontend framework in ruby. It allows for the same kind of
+declaritive change management as vue, albeit in smaller scope. Many vue-like features
+work, and work continues, but this will the current scope is personal.
 
 ## Usage
-How to use my plugin.
+
+The usage is very close to the original, with off course ruby style.
+This means currently working are:
+- reactive attributes
+- reactive text
+- class based data
+- class based method
+- event dispatch to methods
+
+The current and supported use is for making rails pages dynamic. An application
+is defined by deriving from a base class, and can be "mounted" on an element.
+
+There is a syntax to define Event handlers which are methods on the application.
+Methods change the data. And any attributes or text that is declared as part of
+the html will be updated automatically if needed.
+
+The wiki has more detailed descriptions
 
 ## Installation
-Add this line to your application's Gemfile:
 
-```ruby
-gem "vue_r"
-```
+Installation is straightforward by including the gem and bundling
 
-And then execute:
-```bash
-$ bundle
-```
+You can have a main js entry point, or many, it depends a bit.
+You can also read the opal-rails to get a feel for how to work with ruby in the frontend.
 
-Or install it yourself as:
-```bash
-$ gem install vue_r
-```
+I use haml, so
+the usage is then:
+- add the requires to the application.js
+- write the application inside the haml template using :opal filter
+
+The wiki has more details on how to use VueR from Haml or Erb
 
 ## Contributing
-Contribution directions go here.
+
+Ask
 
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
