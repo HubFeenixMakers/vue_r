@@ -3,7 +3,8 @@
 
 VueR is a Vue.js inspired reactive frontend framework in ruby. It allows for the same kind of
 declaritive change management as vue, albeit in smaller scope. Many vue-like features
-work, and work continues, but this will the current scope is personal.
+work, and work continues, but the current scope is personal, so it's not meant as
+a vue.js replacement.
 
 ## Usage
 
