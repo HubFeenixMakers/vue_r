@@ -6,9 +6,6 @@
     %a.underline{ e_click: "bg_change" , r_class: 'back'}
       {{ back }}
 :opal
-  puts "HI"
-
-:plain
   class Clicker < VueR::Application
     def bg_change
       self.state = !self.state

@@ -194,6 +194,7 @@ PLATFORMS
 DEPENDENCIES
   active_hash
   haml-rails
+  opal-rails
   puma (= 5.6.5)
   rails
   sprockets-rails

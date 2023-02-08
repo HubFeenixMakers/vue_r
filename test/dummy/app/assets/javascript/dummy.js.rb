@@ -1,8 +1,17 @@
 require "opal"
+require "native"
+require 'promise'
+require 'opal-parser'
+require 'browser/setup/mini'
+
+
+require "vue_r/application"
+require "vue_r/mounter"
+
+puts "hello world!"
 
 # Uncomment the following to print out you're hello-world with Opal:
 #
-#   puts "hello world!"
 #
 # The following will append a hello-world to your <body> element:
 #
